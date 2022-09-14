@@ -6,12 +6,12 @@ export default function Item(props) {
   const { info } = props;
 
   function handleAddClick() {
-    setTotal(total + 1);
+    setTotal((total) => total + 1);
   }
 
   function handleRemoveClick() {
     if (total > 0) {
-      setTotal(total - 1);
+       setTotal((total) => total - 1);
     }
   }
 
