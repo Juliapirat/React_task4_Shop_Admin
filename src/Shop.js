@@ -6,10 +6,11 @@ export default function Shop() {
   const [items, setItems] = useState([]);
   const [name, setName] = useState("");
   const [desc, setDesc] = useState("");
+  const total = 0;
 
   function handleFormSubmit(e) {
     e.preventDefault();
-    const info = { name, desc, id: uuid() };
+    const info = { name, desc, id: uuid(),total};
     setItems([...items, info]);
   }
   function handleItemDelete(id) {
