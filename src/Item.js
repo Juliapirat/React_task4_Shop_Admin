@@ -1,20 +1,18 @@
 import React, { useState } from "react";
 
 export default function Item(props) {
-  const [total, setTotal] = useState(0);
-
+  const [t, setTotal] = useState(0);
   const { info } = props;
+  console.log(info);
 
   function handleAddClick() {
-    setTotal(total + 1);
+    setTotal((t) => (info.total = t + 1));
   }
-
   function handleRemoveClick() {
-    if (total > 0) {
-      setTotal(total - 1);
+    if (t > 0) {
+      setTotal((t) => (info.total = t - 1));
     }
   }
-
   if (!info) {
     return null;
   }
@@ -28,12 +26,12 @@ export default function Item(props) {
       <div className="item-quantity">
         <button
           className="item-button"
-          disabled={total === 0}
+          disabled={info.total === 0}
           onClick={handleRemoveClick}
         >
           -
         </button>
-        <h3 className="item-total">{total ? total : "0"}</h3>
+        <h3 className="item-total">{info.total ? info.total : "0"}</h3>
         <button className="item-button" onClick={handleAddClick}>
           +
         </button>
